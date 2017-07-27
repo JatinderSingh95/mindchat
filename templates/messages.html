@@ -1,0 +1,11 @@
+
+{% for obj in chat %}
+    {% if obj.user == request.user %}
+        <li class="text-right list-group-item">{{ obj.message }}</li>
+    {% else %}
+        <li class="text-left list-group-item"><img class="img-circle" src="http://static-23.sinclairstoryline.com/resources/media/d368a1cb-f6af-4a04-83d0-ebc66e984ab2-large16x9_BIOPIC.jpg" width="50" height="30">{{ obj.user }}<br>{{obj.message}}<br>{{ obj.created }}</li>
+    {% endif %}
+{% empty %}
+    <li class="text-right list-group-item">No messages yet!</li>
+{% endfor %}
+
